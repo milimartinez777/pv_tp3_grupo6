@@ -37,6 +37,11 @@ const ListaProyectos = () => {
             setNuevaCategoria("");
     };
 
+    const handleEliminar = (id) => {
+      proyectoService.eliminarProyecto(id);
+       const listaActualizada = proyectoService.obtenerProyectos();
+       setProyectos(listaActualizada);
+    };
 
 
 
