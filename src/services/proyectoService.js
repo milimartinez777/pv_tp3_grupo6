@@ -1,10 +1,10 @@
 const proyectoService = (( )=>{
     let proyectos = [
-        { id: 1, título: "Plataforma de Gestión Escolar", categoría: "Web", estado: "En progreso" },
-        { id: 2, título: "App de Control de Asistencia", categoría: "Mobile", estado: "Planificación" },
-        { id: 3, título: "Sistema para Biblioteca Central", categoría: "Escritorio", estado: "Terminado" },
-        { id: 4, título: "Aula Virtual Interactiva", categoría: "Web", estado: "En progreso" },
-        { id: 5, título: "Portal de Seguimiento de Egresados", categoría: "Web", estado: "Terminado" }
+        { id: 1, título: "Sistema de gestión de biblioteca escolar", categoría: "Programación", estado: "En progreso" },
+        { id: 2, título: "App de Matemática", categoría: "Matemática", estado: "Planificación" },
+        { id: 3, título: "Campus virtual Educativo", categoría: "Diseño", estado: "Terminado" },
+        { id: 4, título: "Organizador de tareas académicas", categoría: "Programación", estado: "En progreso" },
+        { id: 5, título: "Simulador de experimentos de Física", categoría: "Fisica", estado: "Terminado" }
     ];
     const obtenerProyectos = () => [...proyectos];
     const agregarProyecto = (nuevoProyecto) => proyectos.push(nuevoProyecto);
