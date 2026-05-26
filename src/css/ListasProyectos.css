@@ -27,3 +27,30 @@
   display: flex;
   flex-direction: column;
 }
+
+/*encabezado titulo*/
+.tarjeta-encabezado {
+  background-color: #f8fafc;
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.tarjeta-encabezado h3 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* etiquetas de estado básicas*/
+.estado-etiqueta {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
