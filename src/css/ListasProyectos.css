@@ -1,0 +1,29 @@
+.contenedor-proyectos {
+  padding: 1rem 0;
+}
+
+.contenedor-proyectos h2 {
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+/*grilla que acomoda las tarjetas*/
+.grilla-proyectos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/*diseño de cada tarjeta*/
+.tarjeta-proyecto {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
