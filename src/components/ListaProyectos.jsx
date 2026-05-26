@@ -14,7 +14,28 @@ const ListaProyectos = () => {
     const [nuevaCategoria, setNuevaCategoria] = useState("");
 
     // falta desarrollo dentro de este bloque...
-
+    const agregar = (e) => {
+        e.preventDefault();
+        
+        if (!nuevoTitulo.trim() || !nuevaCategoria.trim()) {
+          alert("Por favor, completa todos los campos");
+          return;
+        }
+        
+        const nuevo = {
+          id: Date.now(), 
+          título: nuevoTitulo,
+          categoría: nuevaCategoria,
+          estado: "Planificación"  
+        };
+        
+        proyectoService.agregarProyecto(nuevo);
+        
+        setProyectos(proyectoService.obtenerProyectos());
+        
+        setNuevoTitulo("");
+            setNuevaCategoria("");
+    };
 
 
 
