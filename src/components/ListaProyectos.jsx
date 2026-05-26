@@ -81,6 +81,14 @@ const ListaProyectos = () => {
 
 
 
+      <div className="seccion-busqueda">
+          <input
+              type="text"
+              placeholder="Buscar proyecto..."
+              value={terminoBusqueda}
+              onChange={busqueda}
+          />
+      </div>
 
 
 
