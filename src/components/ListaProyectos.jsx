@@ -53,7 +53,28 @@ const ListaProyectos = () => {
 
 
 
+  return (
+    <div className="contenedor-proyectos">
+        <h2>Mis Proyectos Académicos</h2>
 
+        <form onSubmit={agregar} className="formulario-alta">
+            Nuevo Proyecto
+        <div className="grupo-input">
+            <input
+            type="text"
+            placeholder="Título del proyecto..."
+            value={nuevoTitulo}
+            onChange={(e) => setNuevoTitulo(e.target.value)}
+            />
+            <input
+            type="text"
+            placeholder="Categoría (Ej: Web, Mobile)..."
+            value={nuevaCategoria}
+            onChange={(e) => setNuevaCategoria(e.target.value)}
+            />
+            <button type="submit" className="btn-guardar">AGREGAR PROYECTO</button>
+        </div>
+        </form>
 
 
 
