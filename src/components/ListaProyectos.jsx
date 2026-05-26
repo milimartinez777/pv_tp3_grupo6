@@ -89,17 +89,27 @@ const ListaProyectos = () => {
               onChange={busqueda}
           />
       </div>
-
-
-
-
-
-
-
-
-
-
-
+      <div className="grilla-proyectos">
+        {proyectos.map(p => (
+          <div key={p.id} className="tarjeta-proyecto">
+            <header className="tarjeta-encabezado">
+              <h3>{p.título}</h3>
+              <span className={`estado-etiqueta ${p.estado === 'Terminado' ? 'finalizado' : 'activo'}`}>
+                {p.estado}
+              </span>
+            </header>
+            
+            <div className="tarjeta-cuerpo">
+              <p><strong>Área / Categoría:</strong> {p.categoría}</p>
+                <button className="btn-eliminar" onClick={() => handleEliminar(p.id)}>
+                    Eliminar
+                </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
     
-}
+};
 export default ListaProyectos;
