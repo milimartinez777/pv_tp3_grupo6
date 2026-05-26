@@ -43,8 +43,13 @@ const ListaProyectos = () => {
        setProyectos(listaActualizada);
     };
 
-
-
+    //(Filtra los proyectos por título según el texto ingresado en el campo de búsqueda)
+    const busqueda = (e) => {
+      const valor = e.target.value;
+      setTerminoBusqueda(valor);
+      const proyectosFiltrados = proyectoService.buscarProyecto(valor);
+      setProyectos(proyectosFiltrados);
+    };
 
 
 
