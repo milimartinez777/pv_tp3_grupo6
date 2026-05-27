@@ -114,3 +114,49 @@
   border-color: #1e3a8a;
   box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
 }
+
+
+
+/*estilo para guardar nuevo proyecto*/
+.formulario-alta {
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.formulario-alta h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #1e3a8a;
+  font-size: 1.2rem;
+}
+
+.grupo-input {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.grupo-input input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+}
+
+.btn-guardar {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-guardar:hover {
+  background-color: #059669;
+}
