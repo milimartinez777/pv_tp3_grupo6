@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "../css/listasProyectos.css";
+import "../css/ListasProyectos.css";
 
 import proyectoService from "../services/proyectoService.js";
 
