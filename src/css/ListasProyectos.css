@@ -78,20 +78,24 @@
 
 /*botón eliminar */
 .btn-eliminar {
-  background-color: #ef4444;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  background-color: #faf5f5;
+  color: #2c3539;
+  border: 1px solid #ef9a9a;
+  padding: 8px 18px;
+  border-radius: 6px;
   cursor: pointer;
+  display: inline-block;
   margin-top: 1rem;
   font-weight: 500;
-  width: 100%;
-  transition: background-color 0.2s ease;
+  width: auto;
+  align-self: flex-end
+  transition: all 0.2s ease;
 }
 
 .btn-eliminar:hover {
-  background-color: #dc2626;
+  background-color: #ef4444;
+  color: #ffffff;
+  border-color:#ef4444;
 }
 /* espacio entre el título y el buscador*/
 .seccion-busqueda {
