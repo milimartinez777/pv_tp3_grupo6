@@ -19,9 +19,11 @@ const ProyectoCard = ({ proyecto, onEliminar, onVerDetalle }) => {
           <button className="btn-eliminar" onClick={() => onEliminar(id)}>
             Eliminar
           </button>
-          <button className="btn-detalle" onClick={() => onVerDetalle(proyecto)}>
-            Ver detalle
-          </button>
+            <a href="#seccion-detalle" style={{ textDecoration: 'none' }}>
+                <button className="btn-detalle" onClick={() => onVerDetalle(proyecto)}>
+                    Ver detalle
+                </button>
+            </a>
         </div>
       </div>
     </div>

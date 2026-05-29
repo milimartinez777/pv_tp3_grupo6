@@ -186,7 +186,9 @@ const ListaProyectos = () => {
       ))}
     </div>
 
-    <DetalleProyecto proyecto={proyectoSeleccionado} />
+    <div id="seccion-detalle">
+      <DetalleProyecto proyecto={proyectoSeleccionado} />
+    </div>
     </div>
   );
 };
