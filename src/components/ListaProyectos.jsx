@@ -12,12 +12,12 @@ const ListaProyectos = () => {
 
     const [nuevoTitulo, setNuevoTitulo] = useState("");
     const [nuevaCategoria, setNuevaCategoria] = useState("");
-
+    const [nuevoEstado, setNuevoEstado] = useState("");
     // falta desarrollo dentro de este bloque...
-    const agregar = (e) => {
+    const handleAgregarProyecto = (e) => {
         e.preventDefault();
         
-        if (!nuevoTitulo.trim() || !nuevaCategoria.trim()) {
+        if (!nuevoTitulo.trim() || !nuevaCategoria.trim() || !nuevoEstado) {
           alert("Por favor, completa todos los campos");
           return;
         }
@@ -26,7 +26,7 @@ const ListaProyectos = () => {
           id: Date.now(), 
           título: nuevoTitulo,
           categoría: nuevaCategoria,
-          estado: "Planificación"  
+          estado:  nuevoEstado  
         };
         
         proyectoService.agregarProyecto(nuevo);
@@ -34,7 +34,8 @@ const ListaProyectos = () => {
         setProyectos(proyectoService.obtenerProyectos());
         
         setNuevoTitulo("");
-            setNuevaCategoria("");
+        setNuevaCategoria("");
+        setNuevoEstado("");
     };
 
     const handleEliminar = (id) => {
@@ -51,13 +52,11 @@ const ListaProyectos = () => {
       setProyectos(proyectosFiltrados);
     };
 
-
-
   return (
     <div className="contenedor-proyectos">
         <h2>Mis Proyectos Académicos</h2>
 
-        <form onSubmit={agregar} className="formulario-alta">
+        <form onSubmit={handleAgregarProyecto} className="formulario-alta">
             Nuevo Proyecto
         <div className="grupo-input">
             <input
@@ -72,14 +71,21 @@ const ListaProyectos = () => {
             value={nuevaCategoria}
             onChange={(e) => setNuevaCategoria(e.target.value)}
             />
+            <select
+              value={nuevoEstado}
+              onChange={(e) => setNuevoEstado(e.target.value)}
+              className="select-estado"
+            >
+              <option value="" disable hidden>Estado</option>
+
+              <option value="Planificación">Planificación</option>
+              <option value="En progreso">En progreso</option>
+              <option value="Terminado">Terminado</option>
+            </select>
+
             <button type="submit" className="btn-guardar">AGREGAR PROYECTO</button>
         </div>
         </form>
-
-
-
-
-
 
       <div className="seccion-busqueda">
           <input
@@ -89,6 +95,7 @@ const ListaProyectos = () => {
               onChange={busqueda}
           />
       </div>
+
       <div className="grilla-proyectos">
         {proyectos.map(p => (
           <div key={p.id} className="tarjeta-proyecto">
@@ -110,6 +117,6 @@ const ListaProyectos = () => {
       </div>
     </div>
   );
-    
 };
+
 export default ListaProyectos;
