@@ -1,12 +1,9 @@
 import "../css/header.css";
 
 
-function Header() {
+const Header = () =>{
   return (
     <header className="encabezado-sitio">
-      {/*<a href="/" className="logoPrincipal">
-        <img src=" " alt="Gestor de Proyectos" />
-      </a>*/}
       <h1>Gestor de Proyectos Académicos - ¡Te damos la bienvenida!</h1>
     </header>
   );
