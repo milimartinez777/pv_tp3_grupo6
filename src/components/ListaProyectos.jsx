@@ -21,30 +21,56 @@ const ListaProyectos = () => {
       nombreIntegrante: "",
       rolIntegrante: ""
     });
-    // falta desarrollo dentro de este bloque...
     const handleAgregarProyecto = (e) => {
-        e.preventDefault();
-        
-        if (!nuevoTitulo.trim() || !nuevaCategoria.trim() || !nuevoEstado) {
-          alert("Por favor, completa todos los campos");
-          return;
-        }
-        
-        const nuevo = {
-          id: Date.now(), 
-          título: nuevoTitulo,
-          categoría: nuevaCategoria,
-          estado:  nuevoEstado  
-        };
-        
-        proyectoService.agregarProyecto(nuevo);
-        
-        setProyectos(proyectoService.obtenerProyectos());
-        
-        setNuevoTitulo("");
-        setNuevaCategoria("");
-        setNuevoEstado("");
+      e.preventDefault();
+      
+      //desestructuración al objeto del estado
+      const { 
+        título, categoría, estado, descripcion, 
+        pdf, drive, github, nombreIntegrante, rolIntegrante 
+      } = formProyecto;
+      
+      //validamos de los campos obligatorios
+      if (!título.trim() || !categoría.trim() || !estado || !descripcion.trim()) {
+        alert("Por favor, completa los campos principales (Título, Categoría, Estado y Descripción)");
+        return;
+      }
+      
+      // aqui construimos el nuevo proyecto con la estructura completa
+      const nuevo = {
+        id: Date.now(), 
+        título,
+        categoría,
+        estado,
+        descripcion,
+        recursos: {
+          pdf: pdf.trim(),
+          drive: drive.trim(),
+          github: github.trim()
+        },
+        // Si cargan un integrante, lo sumamos al arreglo si no, queda vacío
+        equipo: nombreIntegrante.trim() ? [{ nombre: nombreIntegrante, rol: rolIntegrante }] : []
+      };
+      
+      proyectoService.agregarProyecto(nuevo);
+      
+      // actualizamos la lista en pantalla
+      setProyectos(proyectoService.obtenerProyectos());
+      
+      //aqui limpiamos todo el formulario
+      setFormProyecto({
+        título: "",
+        categoría: "",
+        estado: "",
+        descripcion: "",
+        pdf: "",
+        drive: "",
+        github: "",
+        nombreIntegrante: "",
+        rolIntegrante: ""
+      });
     };
+
 
     const handleEliminar = (id) => {
       proyectoService.eliminarProyecto(id);
