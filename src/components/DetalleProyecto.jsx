@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/detalleProyecto.css';
 
 const DetalleProyecto = ({ proyecto }) => {
   if (!proyecto) return null;
@@ -6,45 +7,58 @@ const DetalleProyecto = ({ proyecto }) => {
   const { título, categoría, estado, descripcion, recursos, equipo } = proyecto;
 
   return (
-    <div className="detalle-proyecto" style={{ marginTop: '20px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
-      <h2>Detalle del Proyecto</h2>
-      <h3>{título}</h3>
-      <p><strong>Categoría:</strong> {categoría} | <strong>Estado:</strong> {estado}</p>
+    <div className="detalle-contenedor-principal">
+
+      <header className="detalle-header">
+        <h2>Detalle del Proyecto</h2>
+        <h3>{título}</h3>
+        <p className="detalle-subtitulo">
+        <strong>Categoría:</strong> {categoría} | <strong>Estado:</strong>
+        <span className={`detalle-estado-badge ${estado =="Terinado" ? "estado-terminado" : "estado-progreso"}`}>{estado}</span>
+        </p>
+      <header>
+        <section className="detalle-seccion-caja">
+        <h4>Descripción</h4>
+        {descripcion ? (
+        descripcion.split('\n\n').map((parrafo, index) => (
+            <p key={index} className="detalle-parrafo">{parrafo}</p>))
+            ) : (
+            <p className="detalle-no-data">No hay descripción disponible.</p>
+            )}
+        </section>
       
-      <hr />
-      <h4>Descripción</h4>
-      {descripcion ? (
-        descripcion.split('\n\n').map((parrafo, index) => <p key={index}>{parrafo}</p>)
-      ) : (
-        <p>No hay descripción disponible.</p>
+          <section className="detalle-seccion-caja">
+          <h4>Recursos Disponibles</h4>
+          {recursos && (recursos.pdf || recursos.drive || recursos.github) ? (
+          <ul className="detalle-lista-enlaces">
+         {recursos.pdf && (<li><a href={recursos.pdf} target="_blank" rel="noreferrer">Documento PDF</a></li>)}
+          {recursos.drive && (<li><a href={recursos.drive} target="_blank" rel="noreferrer">Carpeta de Google Drive</a></li>)}
+          {recursos.github && (<li><a href={recursos.github} target="_blank" rel="noreferrer">Repositorio de GitHub</a></li>)}
+          </ul>
+         ) : (
+        <p className="detalle-no-data">No hay recursos cargados.</p>
       )}
+       </section>
 
-      <hr />
-      <h4>Recursos Disponibles</h4>
-      {recursos ? (
-        <ul>
-          {recursos.pdf && <li><a href={recursos.pdf} target="_blank" rel="noreferrer">Documento PDF</a></li>}
-          {recursos.drive && <li><a href={recursos.drive} target="_blank" rel="noreferrer">Carpeta de Google Drive</a></li>}
-          {recursos.github && <li><a href={recursos.github} target="_blank" rel="noreferrer">Repositorio de GitHub</a></li>}
-        </ul>
-      ) : (
-        <p>No hay recursos cargados.</p>
-      )}
-
-      <hr />
+       <section className="detalle-seccion-caja">
       <h4>Equipo de Trabajo</h4>
       {equipo && equipo.length > 0 ? (
-        <ul>
+        <ul className="detalle-lista-equipo">
           {equipo.map((integrante, index) => (
-            <li key={index}>
-              <strong>{integrante.nombre}</strong> - {integrante.rol}
+            <li key={index}  className="detalle-integrante-item">
+              <strong>{integrante.nombre}</strong> - <span className="detalle-rol-texto">{integrante.rol}</span>
             </li>
           ))}
-        </ul>
-      ) : (
-        <p>No hay miembros asignados.</p>
+         </ul>
+          ) : (
+          <p className="detalle-no-data">No hay miembros asignados.</p>
       )}
-    </div>
+      </section>
+
+      <section className="detalle-seccion-boton">
+        <button className="btn-volver-lista" onClick={() => onCerrar()}>Volver a la Lista de Proyectos</button>
+      </section>
+     </div>
   );
 };
 
