@@ -67,12 +67,16 @@ const proyectoService = (( )=>{
     const buscarProyecto = (texto) => {
         return proyectos.filter(p => p.título.toLowerCase().includes(texto.toLowerCase()));
     };
+    const obtenerProyectoPorId = (id) => {
+        return proyectos.find(p => p.id === Number(id));
+    };
 
     return {
         obtenerProyectos,
         agregarProyecto,
         eliminarProyecto,
-        buscarProyecto
+        buscarProyecto,
+        obtenerProyectoPorId
     };
 })();
 
