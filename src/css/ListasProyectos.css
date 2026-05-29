@@ -85,7 +85,6 @@
   border-radius: 6px;
   cursor: pointer;
   display: inline-block;
-  margin-top: 1rem;
   font-weight: 500;
   width: auto;
   align-self: flex-end;
@@ -188,4 +187,25 @@
 
 .btn-guardar:hover {
   background-color: #1e3a8a;
+}
+
+.tarjeta-acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.btn-detalle {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-detalle:hover {
+  background-color: #0056b3;
 }
