@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/detalleProyecto.css';
 
-const DetalleProyecto = ({ proyecto }) => {
+const DetalleProyecto = ({ proyecto, onCerrar }) => {
   if (!proyecto) return null;
 
   const { título, categoría, estado, descripcion, recursos, equipo } = proyecto;
@@ -14,9 +14,9 @@ const DetalleProyecto = ({ proyecto }) => {
         <h3>{título}</h3>
         <p className="detalle-subtitulo">
         <strong>Categoría:</strong> {categoría} | <strong>Estado:</strong>
-        <span className={`detalle-estado-badge ${estado =="Terinado" ? "estado-terminado" : "estado-progreso"}`}>{estado}</span>
+        <span className={`detalle-estado-badge ${estado =="Terminado" ? "estado-terminado" : "estado-progreso"}`}>{estado}</span>
         </p>
-      <header>
+      </header>
         <section className="detalle-seccion-caja">
         <h4>Descripción</h4>
         {descripcion ? (
