@@ -77,6 +77,20 @@ const ListaProyectos = () => {
       proyectoService.eliminarProyecto(id);
        const listaActualizada = proyectoService.obtenerProyectos();
        setProyectos(listaActualizada);
+      
+       // Si eliminamos el proyecto  que se esta visualizando abajo, cerramos la perstaña
+    if (proyectoSeleccionado && proyectoSeleccionado.id === id) {
+      setProyectoSeleccionado(null);
+      }
+   }; 
+      //Funcion para cargar el detalle buscando el objeto por ID.
+    const handleVerDetalle = (id) => {
+      const proyectoEncontrado = proyectoService.obtenerPoyectoPorId(id);
+      setProyectoSeleccionado(proyectoEncontrado);
+    };
+    //  funcion para cerrar la pestaña del detalle  sin recargar la pagina nuevamente.
+    const handleCerrarDetalle = () => {
+      setProyectoSeleccionado(null)
     };
 
     //(Filtra los proyectos por título según el texto ingresado en el campo de búsqueda)
@@ -187,7 +201,10 @@ const ListaProyectos = () => {
     </div>
 
     <div id="seccion-detalle">
-      <DetalleProyecto proyecto={proyectoSeleccionado} />
+      <DetalleProyecto 
+      proyecto={proyectoSeleccionado}
+      onCerrar={handleCerrarDetalle} 
+      />
     </div>
     </div>
   );
