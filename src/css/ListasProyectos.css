@@ -99,11 +99,18 @@
 }
 /* espacio entre el título y el buscador*/
 .seccion-busqueda {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 1rem;
   margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
 }
 /*para la input de texto */
 .seccion-busqueda input {
   width: 100%;
+  box-sizing: border-box;
   padding: 0.75rem 1rem;
   font-size: 1rem;
   border: 1px solid #cbd5e1;
@@ -151,8 +158,26 @@
   border-radius: 4px;
 }
 
+.grupo-input .select-estado {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #334155;
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
+  }
+
+.grupo-input .select-estado:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 56, 138, 0.1);
+}
+
 .btn-guardar {
-  background-color: #10b981;
+  background-color: #1e3a8a;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -162,5 +187,5 @@
 }
 
 .btn-guardar:hover {
-  background-color: #059669;
+  background-color: #1e3a8a;
 }
