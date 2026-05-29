@@ -10,9 +10,17 @@ const ListaProyectos = () => {
     const [terminoBusqueda, setTerminoBusqueda] = useState("");
 
 
-    const [nuevoTitulo, setNuevoTitulo] = useState("");
-    const [nuevaCategoria, setNuevaCategoria] = useState("");
-    const [nuevoEstado, setNuevoEstado] = useState("");
+    const [formProyecto, setFormProyecto] = useState({
+      título: "",
+      categoría: "",
+      estado: "",
+      descripcion: "",
+      pdf: "",
+      drive: "",
+      github: "",
+      nombreIntegrante: "",
+      rolIntegrante: ""
+    });
     // falta desarrollo dentro de este bloque...
     const handleAgregarProyecto = (e) => {
         e.preventDefault();
