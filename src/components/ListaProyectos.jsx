@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 import "../css/ListasProyectos.css";
-
+import ProyectoCard from "./ProyectoCard.jsx";
+import DetalleProyecto from "./DetalleProyecto.jsx";
 import proyectoService from "../services/proyectoService.js";
 
 const ListaProyectos = () => {
@@ -9,7 +10,7 @@ const ListaProyectos = () => {
 
     const [terminoBusqueda, setTerminoBusqueda] = useState("");
 
-
+    const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
     const [formProyecto, setFormProyecto] = useState({
       título: "",
       categoría: "",
@@ -117,7 +118,7 @@ const ListaProyectos = () => {
               <option value="Terminado">Terminado</option>
             </select>
 
-            {/* NUEVO: Campo de Descripción Extendida */}
+            {/* nuevo campo de Descripción Extendida */}
             <textarea
               placeholder="Descripción del proyecto (Mínimo dos párrafos separados por doble espacio)..."
               value={formProyecto.descripcion}
@@ -125,7 +126,7 @@ const ListaProyectos = () => {
               style={{ width: "100%", padding: "0.6rem", borderRadius: "4px", border: "1px solid #cbd5e1", minHeight: "80px" }}
             />
 
-            {/* NUEVO: Campos de Recursos */}
+            {/* nuevo campos de Recursos */}
             <input
               type="text"
               placeholder="Link de Recurso PDF (Opcional)..."
@@ -145,7 +146,7 @@ const ListaProyectos = () => {
               onChange={(e) => setFormProyecto({ ...formProyecto, github: e.target.value })}
             />
 
-            {/* NUEVO: Campos de Integrante de Equipo */}
+            {/*nuevo campos de Integrante de Equipo */}
             <input
               type="text"
               placeholder="Nombre del Integrante (Opcional)..."
@@ -173,26 +174,19 @@ const ListaProyectos = () => {
               onChange={busqueda}
           />
       </div>
+    {/* reemplazo del div anterior por el nuevo respetando la nueva estructura*/}
+    <div className="grilla-proyectos">
+      {proyectos.map(p => (
+        <ProyectoCard 
+          key={p.id} 
+          proyecto={p} 
+          onEliminar={handleEliminar} 
+          onVerDetalle={setProyectoSeleccionado} 
+        />
+      ))}
+    </div>
 
-      <div className="grilla-proyectos">
-        {proyectos.map(p => (
-          <div key={p.id} className="tarjeta-proyecto">
-            <header className="tarjeta-encabezado">
-              <h3>{p.título}</h3>
-              <span className={`estado-etiqueta ${p.estado === 'Terminado' ? 'finalizado' : 'activo'}`}>
-                {p.estado}
-              </span>
-            </header>
-            
-            <div className="tarjeta-cuerpo">
-              <p><strong>Área / Categoría:</strong> {p.categoría}</p>
-                <button className="btn-eliminar" onClick={() => handleEliminar(p.id)}>
-                    Eliminar
-                </button>
-            </div>
-          </div>
-        ))}
-      </div>
+    <DetalleProyecto proyecto={proyectoSeleccionado} />
     </div>
   );
 };
