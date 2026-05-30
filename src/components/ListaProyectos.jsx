@@ -85,7 +85,7 @@ const ListaProyectos = () => {
    }; 
       //Funcion para cargar el detalle buscando el objeto por ID.
     const handleVerDetalle = (id) => {
-      const proyectoEncontrado = proyectoService.obtenerPoyectoPorId(id);
+      const proyectoEncontrado = proyectoService.obtenerProyectoPorId(id);
       setProyectoSeleccionado(proyectoEncontrado);
     };
     //  funcion para cerrar la pestaña del detalle  sin recargar la pagina nuevamente.
