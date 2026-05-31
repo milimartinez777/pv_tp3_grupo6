@@ -20,7 +20,7 @@ const ProyectoCard = ({ proyecto, onEliminar, onVerDetalle }) => {
             Eliminar
           </button>
             <a href="#seccion-detalle" style={{ textDecoration: 'none' }}>
-                <button className="btn-detalle" onClick={() => onVerDetalle(proyecto)}>
+                <button className="btn-detalle" onClick={() => onVerDetalle(id)}>
                     Ver detalle
                 </button>
             </a>

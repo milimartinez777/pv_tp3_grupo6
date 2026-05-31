@@ -195,7 +195,7 @@ const ListaProyectos = () => {
           key={p.id} 
           proyecto={p} 
           onEliminar={handleEliminar} 
-          onVerDetalle={setProyectoSeleccionado} 
+          onVerDetalle={handleVerDetalle} 
         />
       ))}
     </div>
