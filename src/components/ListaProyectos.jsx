@@ -24,29 +24,17 @@ const ListaProyectos = () => {
       rolIntegrante: ""
     });
     const [fechaActualizacion, setFechaActualizacion] = useState("");
+    {/*punto 2 y 3*/}
     useEffect(() => {
     const ahora = new Date();
 
-    // formato para la forma en la que se verá la fecha
-    const dia = String(ahora.getDate()).padStart(2, '0');
-    const mes = String(ahora.getMonth() + 1).padStart(2, '0');
-    const anio = ahora.getFullYear();
-
-    // formato par alas hora y minutos
-    const horas = String(ahora.getHours()).padStart(2, '0');
-    const minutos = String(ahora.getMinutes()).padStart(2, '0');
-
-    const formatoFecha = `${dia}/${mes}/${anio} a las ${horas}:${minutos} hs.`;
-    // actualizacion de variable de estad
-    setFechaActualizacion(formatoFecha);
-
+    let ultimaActualizacion = `${String(ahora.getDate()).padStart(2, "0")}/${String(ahora.getMonth() + 1).padStart(2, "0")}/${ahora.getFullYear()} a las ${String(ahora.getHours()).padStart(2, "0")}:${String(ahora.getMinutes()).padStart(2, "0")} hs.`;
+    {/*imprime por consola cambios en proyectos ya sea eliminar, buscar o agregar proyectos*/}  
+    console.log(ultimaActualizacion);
+    setFechaActualizacion(ultimaActualizacion);
     }, [proyectos]);
 
-
-
-
-
-
+    
     const handleAgregarProyecto = (e) => {
       e.preventDefault();
       
@@ -232,7 +220,7 @@ const ListaProyectos = () => {
       />
     </div>
 
-    <RegistroActividad ultimaActualizacion={fechaActualizacion} />
+    <RegistroActividad ultimaActualizacion = {fechaActualizacion} />
 
     </div>
   );
