@@ -1,7 +1,11 @@
 /* Este es el css basico para lo que imagino será el uso del componente funcional creado*/
 .registro-actividad {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 2rem;
+    padding: 1rem;
     color: #64748b;
     font-size: 0.95rem;
+    background-color: #f1f5f9;
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
 }
