@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "../css/ListasProyectos.css";
 import ProyectoCard from "./ProyectoCard.jsx";
 import DetalleProyecto from "./DetalleProyecto.jsx";
 import proyectoService from "../services/proyectoService.js";
+import RegistroActividad from "./RegistroActividad.jsx";
 
 const ListaProyectos = () => {
     const [proyectos, setProyectos] = useState(proyectoService.obtenerProyectos());
@@ -22,6 +23,30 @@ const ListaProyectos = () => {
       nombreIntegrante: "",
       rolIntegrante: ""
     });
+    const [fechaActualizacion, setFechaActualizacion] = useState("");
+    useEffect(() => {
+    const ahora = new Date();
+
+    // formato para la forma en la que se verá la fecha
+    const dia = String(ahora.getDate()).padStart(2, '0');
+    const mes = String(ahora.getMonth() + 1).padStart(2, '0');
+    const anio = ahora.getFullYear();
+
+    // formato par alas hora y minutos
+    const horas = String(ahora.getHours()).padStart(2, '0');
+    const minutos = String(ahora.getMinutes()).padStart(2, '0');
+
+    const formatoFecha = `${dia}/${mes}/${anio} a las ${horas}:${minutos} hs.`;
+    // actualizacion de variable de estad
+    setFechaActualizacion(formatoFecha);
+
+    }, [proyectos]);
+
+
+
+
+
+
     const handleAgregarProyecto = (e) => {
       e.preventDefault();
       
@@ -206,6 +231,9 @@ const ListaProyectos = () => {
       onCerrar={handleCerrarDetalle} 
       />
     </div>
+
+    <RegistroActividad ultimaActualizacion={fechaActualizacion} />
+
     </div>
   );
 };
