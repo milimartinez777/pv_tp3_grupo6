@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 
 import "../css/ListasProyectos.css";
 import ProyectoCard from "./ProyectoCard.jsx";
@@ -24,8 +24,20 @@ const ListaProyectos = () => {
       rolIntegrante: ""
     });
     const [fechaActualizacion, setFechaActualizacion] = useState("");
+    
+    const esPrimerRender=useRef(true);
+    
     {/*punto 2 y 3*/}
     useEffect(() => {
+      if (esPrimerRender.current){
+         esPrimerRender.current=false;
+         return;
+      }
+     /*aislacion del filtro*/ 
+      if (terminoBusqueda!==""){
+        return;
+      }
+
     const ahora = new Date();
 
     let ultimaActualizacion = `${String(ahora.getDate()).padStart(2, "0")}/${String(ahora.getMonth() + 1).padStart(2, "0")}/${ahora.getFullYear()} a las ${String(ahora.getHours()).padStart(2, "0")}:${String(ahora.getMinutes()).padStart(2, "0")} hs.`;
@@ -219,9 +231,9 @@ const ListaProyectos = () => {
       onCerrar={handleCerrarDetalle} 
       />
     </div>
-
+     {fechaActualizacion && (
     <RegistroActividad ultimaActualizacion = {fechaActualizacion} />
-
+     )}
     </div>
   );
 };
