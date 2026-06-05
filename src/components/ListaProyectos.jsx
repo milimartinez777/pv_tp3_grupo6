@@ -38,10 +38,10 @@ const ListaProyectos = () => {
     
 
      /*aislacion del filtro */
-      if (terminoBusqueda!==""){
+      if (terminoBusqueda !== ""){
         return;
       }
-    if (proyectos.length!==longitudAnterior.current){
+    if (proyectos.length !== longitudAnterior.current){
     const ahora = new Date();
 
     let ultimaActualizacion = `${String(ahora.getDate()).padStart(2, "0")}/${String(ahora.getMonth() + 1).padStart(2, "0")}/${ahora.getFullYear()} a las ${String(ahora.getHours()).padStart(2, "0")}:${String(ahora.getMinutes()).padStart(2, "0")} hs.`;
@@ -50,7 +50,7 @@ const ListaProyectos = () => {
      setFechaActualizacion(ultimaActualizacion);
       longitudAnterior.current=proyectos.length;/**/
     }
-   }, [proyectos]);
+   }, [proyectos, terminoBusqueda]);
 
     
     const handleAgregarProyecto = (e) => {
@@ -237,7 +237,10 @@ const ListaProyectos = () => {
       onCerrar={handleCerrarDetalle} 
       />
     </div>
+    {fechaActualizacion &&(
+    
     <RegistroActividad ultimaActualizacion = {fechaActualizacion} />
+    )}
     </div>
   );
 };
