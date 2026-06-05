@@ -7,7 +7,9 @@ import proyectoService from "../services/proyectoService.js";
 import RegistroActividad from "./RegistroActividad.jsx";
 
 const ListaProyectos = () => {
+    
     const [proyectos, setProyectos] = useState(proyectoService.obtenerProyectos());
+     const longitudAnterior=useRef(proyectos.length)  /**/
 
     const [terminoBusqueda, setTerminoBusqueda] = useState("");
 
@@ -33,18 +35,22 @@ const ListaProyectos = () => {
          esPrimerRender.current=false;
          return;
       }
-     /*aislacion del filtro*/ 
+    
+
+     /*aislacion del filtro */
       if (terminoBusqueda!==""){
         return;
       }
-
+    if (proyectos.length!==longitudAnterior.current){
     const ahora = new Date();
 
     let ultimaActualizacion = `${String(ahora.getDate()).padStart(2, "0")}/${String(ahora.getMonth() + 1).padStart(2, "0")}/${ahora.getFullYear()} a las ${String(ahora.getHours()).padStart(2, "0")}:${String(ahora.getMinutes()).padStart(2, "0")} hs.`;
     {/*imprime por consola cambios en proyectos ya sea eliminar, buscar o agregar proyectos*/}  
     console.log(ultimaActualizacion);
-    setFechaActualizacion(ultimaActualizacion);
-    }, [proyectos]);
+     setFechaActualizacion(ultimaActualizacion);
+      longitudAnterior.current=proyectos.length;/**/
+    }
+   }, [proyectos]);
 
     
     const handleAgregarProyecto = (e) => {
@@ -231,9 +237,7 @@ const ListaProyectos = () => {
       onCerrar={handleCerrarDetalle} 
       />
     </div>
-     {fechaActualizacion && (
     <RegistroActividad ultimaActualizacion = {fechaActualizacion} />
-     )}
     </div>
   );
 };
