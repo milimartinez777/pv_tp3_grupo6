@@ -1,6 +1,7 @@
 import React from 'react';
+import{Link} from 'react-router-dom';
 
-const ProyectoCard = ({ proyecto, onEliminar, onVerDetalle }) => {
+const ProyectoCard = ({ proyecto, onEliminar }) => {
   const { id, título, categoría, estado } = proyecto;
 
   return (
@@ -19,11 +20,9 @@ const ProyectoCard = ({ proyecto, onEliminar, onVerDetalle }) => {
           <button className="btn-eliminar" onClick={() => onEliminar(id)}>
             Eliminar
           </button>
-            <a href="#seccion-detalle" style={{ textDecoration: 'none' }}>
-                <button className="btn-detalle" onClick={() => onVerDetalle(id)}>
-                    Ver detalle
-                </button>
-            </a>
+            <Link to={`/proyectos/${id}`}>
+                <button className="btn-detalle"> Ver detalle</button>
+            </Link>
         </div>
       </div>
     </div>
