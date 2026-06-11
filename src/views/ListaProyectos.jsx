@@ -138,12 +138,14 @@ const ListaProyectos = () => {
       ))}
     </div>
 
-    <div id="seccion-detalle">
-      <DetalleProyecto 
-      proyecto={proyectoSeleccionado}
-      onCerrar={handleCerrarDetalle} 
-      />
-    </div>
+    {proyectoSeleccionado && (
+      <div id="seccion-detalle">
+        <DetalleProyecto 
+          proyecto={proyectoSeleccionado}
+          onCerrar={handleCerrarDetalle} 
+        />
+      </div>
+    )}
     {fechaActualizacion &&(
     
     <RegistroActividad ultimaActualizacion = {fechaActualizacion} />
