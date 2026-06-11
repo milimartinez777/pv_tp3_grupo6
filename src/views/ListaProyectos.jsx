@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
+
 import "../css/ListasProyectos.css";
 import ProyectoCard from "../components/ProyectoCard.jsx";
 import DetalleProyecto from "./DetalleProyecto.jsx";
@@ -19,6 +20,8 @@ const ListaProyectos = () => {
     const [fechaActualizacion, setFechaActualizacion] = useState("");
     
     const esPrimerRender=useRef(true);
+
+    const [mostrarForm, setMostrarForm] = useState(false);
     
     {/*punto 2 y 3*/}
     useEffect(() => {
@@ -105,7 +108,15 @@ const ListaProyectos = () => {
     <div className="contenedor-proyectos">
         <h2>Mis Proyectos Académicos</h2>
 
-        <FormularioProyecto onAgregar={handleAgregarProyecto} />
+      <button 
+        className="btn-guardar" 
+        style={{ marginBottom: '1rem', display: 'block', margin: '0 auto 1.5rem auto' }}
+        onClick={() => setMostrarForm(!mostrarForm)}
+      >
+        {mostrarForm ? "Cerrar Formulario" : "Agregar Nuevo Proyecto"}
+      </button>
+
+      {mostrarForm && <FormularioProyecto onAgregar={handleAgregarProyecto} />}
 
       <div className="seccion-busqueda">
           <input
