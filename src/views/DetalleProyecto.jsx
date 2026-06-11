@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/detalleProyecto.css';
+import { useParams, useNavigate } from 'react-router-dom';
+import proyectoService from '../services/proyectoService';
 
-const DetalleProyecto = ({ proyecto, onCerrar }) => {
-  if (!proyecto) return null;
+const DetalleProyecto = () => {
+  const {id}=useParams();
+  const navigate= useNavigate();
+
+  const [proyecto, setProyecto] = useState(null);
+  useEffect(() => {
+    const lista = proyectoService.obtenerProyectos();
+    const proyectoEncontrado = lista.find(p => String(p.id) === String(id));
+    setProyecto(proyectoEncontrado);
+  }, [id]);
+  //por si no se encuentra el proyecto
+  if (!proyecto) {
+    return (
+      <div className="detalle-contenedor-principal">
+        <p className="detalle-no-data">Cargando datos del proyecto o no encontrado...</p>
+        <button className="btn-volver-lista" onClick={() => navigate('/proyectos')}>Volver a la Lista</button>
+      </div>
+    );
+  }
 
   const { título, categoría, estado, descripcion, recursos, equipo } = proyecto;
 
@@ -17,30 +36,30 @@ const DetalleProyecto = ({ proyecto, onCerrar }) => {
         <span className={`detalle-estado-badge ${estado =="Terminado" ? "estado-terminado" : "estado-progreso"}`}>{estado}</span>
         </p>
       </header>
-        <section className="detalle-seccion-caja">
-        <h4>Descripción</h4>
-        {descripcion ? (
+      <section className="detalle-seccion-caja">
+      <h4>Descripción</h4>
+      {descripcion ? (
         descripcion.split('\n\n').map((parrafo, index) => (
-            <p key={index} className="detalle-parrafo">{parrafo}</p>))
-            ) : (
+          <p key={index} className="detalle-parrafo">{parrafo}</p>))
+          ) : (
             <p className="detalle-no-data">No hay descripción disponible.</p>
-            )}
-        </section>
+          )}
+      </section>
       
-          <section className="detalle-seccion-caja">
-          <h4>Recursos Disponibles</h4>
-          {recursos && (recursos.pdf || recursos.drive || recursos.github) ? (
+      <section className="detalle-seccion-caja">
+        <h4>Recursos Disponibles</h4>
+        {recursos && (recursos.pdf || recursos.drive || recursos.github) ? (
           <ul className="detalle-lista-enlaces">
-         {recursos.pdf && (<li><a href={recursos.pdf} target="_blank" rel="noreferrer">Documento PDF</a></li>)}
-          {recursos.drive && (<li><a href={recursos.drive} target="_blank" rel="noreferrer">Carpeta de Google Drive</a></li>)}
-          {recursos.github && (<li><a href={recursos.github} target="_blank" rel="noreferrer">Repositorio de GitHub</a></li>)}
+            {recursos.pdf && (<li><a href={recursos.pdf} target="_blank" rel="noreferrer">Documento PDF</a></li>)}
+            {recursos.drive && (<li><a href={recursos.drive} target="_blank" rel="noreferrer">Carpeta de Google Drive</a></li>)}
+            {recursos.github && (<li><a href={recursos.github} target="_blank" rel="noreferrer">Repositorio de GitHub</a></li>)}
           </ul>
          ) : (
         <p className="detalle-no-data">No hay recursos cargados.</p>
       )}
-       </section>
+      </section>
 
-       <section className="detalle-seccion-caja">
+      <section className="detalle-seccion-caja">
       <h4>Equipo de Trabajo</h4>
       {equipo && equipo.length > 0 ? (
         <ul className="detalle-lista-equipo">
@@ -56,7 +75,7 @@ const DetalleProyecto = ({ proyecto, onCerrar }) => {
       </section>
 
       <section className="detalle-seccion-boton">
-        <button className="btn-volver-lista" onClick={() => onCerrar()}>Volver a la Lista de Proyectos</button>
+        <button className="btn-volver-lista" onClick={() => navigate('/proyectos')}>Volver a la Lista de Proyectos</button>
       </section>
      </div>
   );
