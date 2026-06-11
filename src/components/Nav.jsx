@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <nav>
       <ul className="navLista">
-        <Link to="/dashboard">Inicio</Link>
+        <Link to="/">Inicio</Link>
         <Link to="/proyectos">Proyectos</Link>
         <Link to="/perfil">Perfil</Link>
       </ul>

@@ -1,13 +1,17 @@
 .contenedor-proyectos {
-  padding: 1rem 0;
+  padding: 2rem 1.5rem;
+  background-color: #eef2ff;
+  min-height: 100vh;
+  border-radius: 20px;
 }
 
 .contenedor-proyectos h2 {
   color: #1e3a8a;
   margin-bottom: 1.5rem;
-  font-size: 1.6rem;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 500;
+  border-bottom: 2px solid #dde3f0;
+  padding-bottom: 0.75rem;
   text-align: center;
 }
 
@@ -22,18 +26,23 @@
 .tarjeta-proyecto {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px  rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tarjeta-proyecto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(30, 58, 138, 0.08);
 }
 
 /*encabezado titulo*/
 .tarjeta-encabezado {
   background-color: #f8fafc;
-  padding: 1rem;
-  border-bottom: 1px solid #e2e8f0;
+  padding: 1.2rem;
+  border-bottom: 1px solid #dde3f0;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -41,17 +50,18 @@
 }
 
 .tarjeta-encabezado h3 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: #1e293b;
   margin: 0;
+  font-weight: 600;
 }
 
 /* etiquetas de estado básicas*/
 .estado-etiqueta {
   font-size: 0.75rem;
   font-weight: bold;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -59,87 +69,64 @@
 /*colores según lógica de clases*/
 .activo {
   background-color: #fef3c7;
-  color: #d97706; /*naranja/Amarillo para En progreso / Planificación*/
+  color: #d97706;
+  border: 0.5px solid #fde68a;
 }
 
 .finalizado {
   background-color: #dcfce7;
-  color: #15803d; /*verde para Terminado*/
+  color: #15803d; 
+  border: 0.5px solid #bbf7d0;
 }
 
 /*cuerpo de la tarjeta*/
 .tarjeta-cuerpo {
-  padding: 1rem;
+  padding: 1.2rem;
   font-size: 0.95rem;
   color: #475569;
+  line-height: 1.5;
 }
-
-
-.btn-eliminar {
-  background-color: #faf5f5;
-  color: #2c3539;
-  border: 1px solid #ef9a9a;
-  padding: 8px 18px; 
-  margin-left: 6px;
-  margin-right: 6px;
-  
-  border-radius: 6px;
-  cursor: pointer;
-  display: inline-block; 
-  width: auto;
-  transition: all 0.2s ease;
-}
-
-.btn-eliminar:hover {
-  background-color: #ef4444;
-  color: #ffffff;
-  border-color: #ef4444;
-}
-/* espacio entre el título y el buscador*/
-.seccion-busqueda {
+.seccion-busqueda{
   width: 100%;
   max-width: 100%;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
   box-sizing: border-box;
 }
-/*para la input de texto */
 .seccion-busqueda input {
   width: 100%;
   box-sizing: border-box;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.2rem;
   font-size: 1rem;
   border: 1px solid #cbd5e1;
-  border-radius: 6px;
+  border-radius: 12px; 
   outline: none;
   background-color: #ffffff;
-  transition: border-color 0.2s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
-/*efecto para cuando se hace click adentro para escribir */
 .seccion-busqueda input:focus {
-  border-color: #1e3a8a;
-  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 
-
-/*estilo para guardar nuevo proyecto*/
 .formulario-alta {
-  background-color: #f8fafc;
+  background-color: #ffffff;
   padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  border: 1px solid #dde3f0;
   margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
 }
 
 .formulario-alta h3 {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   color: #1e3a8a;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .grupo-input {
@@ -148,79 +135,79 @@
   flex-wrap: wrap;
 }
 
-.grupo-input input {
+.grupo-input input, .grupo-input .select-estado {
   flex: 1;
   min-width: 200px;
-  padding: 0.6rem;
+  padding: 0.75rem;
   border: 1px solid #cbd5e1;
-  border-radius: 4px;
-}
-
-.grupo-input .select-estado {
-  flex: 1;
-  min-width: 200px;
-  padding: 0.6rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 4px;
-  background-color: #ffffff;
-  color: #334155;
+  border-radius: 8px;
   font-size: 0.95rem;
   outline: none;
-  cursor: pointer;
-  }
-
-.grupo-input .select-estado:focus {
-  border-color: #1e3a8a;
-  box-shadow: 0 0 0 3px rgba(30, 56, 138, 0.1);
 }
 
+.grupo-input input:focus, .grupo-input .select-estado:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+
 .btn-guardar {
-  background-color: #1e3a8a;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6); 
   color: white;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .btn-guardar:hover {
-  background-color: #1e3a8a;
-}
-
-.tarjeta-acciones {
-  display: flex;
-  gap: 10px;
-  margin-top: 1rem;
+  transform: translateY(-1px);
+  opacity: 0.95;
 }
 
 .btn-detalle {
-  background-color: #007bff;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
   color: white;
-  border: 1px solid #007bff; 
-  
-
-  padding: 8px 18px;
-  margin-left: 6px;
-  margin-right: 6px;
-  
-  border-radius: 6px;
+  border: none; 
+  padding: 9px 20px;
+  border-radius: 10px;
   cursor: pointer;
-  display: inline-block;
   font-weight: 500;
-  transition: background-color 0.2s ease;
+  box-shadow: 0 4px 10px rgba(30, 58, 138, 0.15);
+  transition: all 0.2s ease;
 }
 
 .btn-detalle:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(30, 58, 138, 0.25);
+}
+
+.btn-eliminar {
+  background-color: #fff5f5;
+  color: #c53030;
+  border: 1px solid #feb2b2;
+  padding: 9px 20px; 
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-eliminar:hover {
+  background-color: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+  transform: translateY(-2px);
 }
 
 .tarjeta-acciones {
   display: flex;
   justify-content: center; 
-  align-items: center;     
-  gap: 12px;               
+  align-items: center;    
+  gap: 12px;              
   margin-top: 15px;
   margin-bottom: 15px;     
 }
