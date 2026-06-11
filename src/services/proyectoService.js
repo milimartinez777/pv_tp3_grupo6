@@ -1,3 +1,9 @@
+import avatar1 from '../assets/equipo/avatar1.png';
+import avatar2 from '../assets/equipo/avatar2.png';
+import avatar3 from '../assets/equipo/avatar3.png';
+import avatar4 from '../assets/equipo/avatar4.png';
+import avatar5 from '../assets/equipo/avatar5.png';
+
 const proyectoService = (( )=>{
     let proyectos = [
         { 
@@ -57,6 +63,16 @@ const proyectoService = (( )=>{
             ]
         }
     ];
+    const equipo = [
+        {id: 1, nombre: "Venencia Shashiquen Brenda Mailén", dni: "12354987", rol: "Desarrolladora", institucion: "UNJU", foto: avatar4},
+        {id: 2, nombre: "Rodriguez María Lourdes", dni: "12354987", rol: "Diseñadora UI/UX", institucion: "UNJU", foto: avatar5},
+        {id: 3, nombre: "Martinez Milagro Soledad", dni: "12354987", rol: "Desarrolladora Fullstack", institucion: "UNJU", foto: avatar3},
+        {id: 4, nombre: "Cruz Jonatan Anibal", dni: "12354987", rol: "Desarrollador Fullstack", institucion: "UNJU", foto: avatar1},
+        {id: 5, nombre: "Juarez David", dni: "12354987", rol: "Analista en Sistemas", institucion: "UNJU", foto: avatar2}
+        
+    ];
+    const obtenerEquipo = () => [...equipo];
+
     const obtenerProyectos = () => [...proyectos];
     const agregarProyecto = (nuevoProyecto) => proyectos.push(nuevoProyecto);
 
@@ -76,7 +92,8 @@ const proyectoService = (( )=>{
         agregarProyecto,
         eliminarProyecto,
         buscarProyecto,
-        obtenerProyectoPorId
+        obtenerProyectoPorId,
+        obtenerEquipo
     };
 })();
 
