@@ -1,32 +1,52 @@
 import React from 'react';
 import{Link} from 'react-router-dom';
 
+import {Card, CardContent, CardActions, Typography, Button } from '@mui/material';
+
+import '../css/proyectoCardMui.css';
 const ProyectoCard = ({ proyecto, onEliminar }) => {
   const { id, título, categoría, estado } = proyecto;
 
   return (
-    <div className="tarjeta-proyecto">
-      <header className="tarjeta-encabezado">
-        <h3>{título}</h3>
-        <span className={`estado-etiqueta ${estado === 'Terminado' ? 'finalizado' : 'activo'}`}>
-          {estado}
-        </span>
-      </header>
-      
-      <div className="tarjeta-cuerpo">
-        <p><strong>Área / Categoría:</strong> {categoría}</p>
+    <Card variant="outlined" className="tarjeta-mui">
+      <CardContent>
+        <Typography variant="h5" component="div" gutterBottom>
+          {título}
+        </Typography>
         
-        <div className="tarjeta-acciones">
-          <button className="btn-eliminar" onClick={() => onEliminar(id)}>
-            Eliminar
-          </button>
-            <Link to={`/proyectos/${id}`}>
-                <button className="btn-detalle"> Ver detalle</button>
-            </Link>
-        </div>
-      </div>
-    </div>
+        <Typography color="textSecondary" gutterBottom>
+          <strong>Área / Categoría:</strong> {categoría}
+        </Typography>
+
+        <Typography variant="body2">
+          <strong>Estado:</strong> {estado}
+        </Typography>
+      </CardContent>
+
+      <CardActions className="acciones-mui">
+        <Button 
+          size="small" 
+          color="error" 
+          variant="contained"
+          onClick={() => onEliminar(id)}
+          className="boton-eliminar-mui"
+        >
+          Eliminar
+        </Button>
+
+        <Button 
+          size="small" 
+          color="primary" 
+          variant="outlined"
+          component={Link} 
+          to={`/proyectos/${id}`}
+        >
+          Ver detalle
+        </Button>
+      </CardActions>
+    </Card>
   );
+
 };
 
 export default ProyectoCard;
