@@ -12,23 +12,23 @@ const PerfilUsuario = () => {
             <Container maxWidth="lg">
 
                 <Paper elevation={0} sx={{ p: 4, mb: 5, textAlign: 'center', color: 'white', borderRadius: 5, background: 'linear-gradient(135deg, #1e3a8a, #3b82f6)', overflow: 'hidden', position: 'relative' }}>
-                    <Typography variant="overline" sx={{ color: '#93c5fd', letterSpacing: 3 }}>Proyecto Integrador · Grupo 06</Typography>
-                    <Typography variant="h3" fontWeight="500" sx={{ mt: 1 }}>Equipo de Trabajo</Typography>
-                    <Typography sx={{ mt: 1, color: 'rgba(255,255,255,0.65)', fontSize: 14 }}>Conoce a los integrantes detrás del proyecto</Typography>
+                    
+                    <Typography variant="h3" fontWeight="500" sx={{ mt: 2, mb: 1 }}>Equipo de Trabajo</Typography>
+                    <Typography sx={{ mt: 1, color: 'rgba(255,255,255,0.65)', fontSize: 14 }}>Conoce a los integrantes detrás de cada proyecto</Typography>
                     <Box sx={{ width: 48, height: 3, background: 'rgba(255,255,255,0.35)', borderRadius: 2, mx: 'auto', my: 2 }} />
                     <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1.5 }}>
                         <Chip icon={<span style={{ fontSize: 13, marginLeft: 8 }}>👥</span>} label={`${integrantes.length} integrantes`} sx={{ background: 'rgba(255,255,255,0.15)', color: 'white', border: '0.5px solid rgba(255,255,255,0.25)' }} />
-                        <Chip icon={<span style={{ fontSize: 13, marginLeft: 8 }}>🎓</span>} label="UTN" sx={{ background: 'rgba(255,255,255,0.15)', color: 'white', border: '0.5px solid rgba(255,255,255,0.25)' }} />
+                        <Chip icon={<span style={{ fontSize: 13, marginLeft: 8 }}>🎓</span>} label="UNJU" sx={{ background: 'rgba(255,255,255,0.15)', color: 'white', border: '0.5px solid rgba(255,255,255,0.25)' }} />
                     </Box>
                 </Paper>
 
-                <Grid container spacing={3} justifyContent="center">
+                <Grid container spacing={3} sx={{ justifyContent: "center" }}>
 
                     {integrantes.map((persona) => {
                         return (
-                            <Grid item xs={12} sm={6} md={4} key={persona.id} sx={{ display: 'flex' }}>
+                            <Grid xs={12} sm={6} md={4} key={persona.id} sx={{ display: 'flex', px: 1 }}>
 
-                                <Paper elevation={3} sx={{ width: '100%', borderRadius: 5, overflow: 'hidden', display: 'flex', flexDirection: 'column', border: '0.5px solid #dde3f0', transition: 'transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s ease', '&:hover': { transform: 'translateY(-12px) scale(1.02)', boxShadow: '0 24px 50px rgba(30,58,138,0.18)' } }}>
+                                <Paper elevation={3} sx={{ width: '320px', height: '400px', borderRadius: 5, overflow: 'hidden', display: 'flex', flexDirection: 'column', border: '0.5px solid #dde3f0', transition: 'transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s ease', '&:hover': { transform: 'translateY(-12px) scale(1.02)', boxShadow: '0 24px 50px rgba(30,58,138,0.18)' } }}>
 
                                     <Box sx={{ height: 5, background: 'linear-gradient(90deg, #1e3a8a, #3b82f6, #93c5fd)' }} />
 
@@ -49,7 +49,7 @@ const PerfilUsuario = () => {
                                         <Divider sx={{ borderImage: 'linear-gradient(90deg, transparent, #3b82f6 30%, #93c5fd 70%, transparent) 1', borderWidth: 2 }} />
                                     </Box>
 
-                                    <Box sx={{ px: 2.5, py: 2, display: 'flex', flexDirection: 'column', gap: 1 }}>
+                                    <Box sx={{ px: 2.5, py: 2, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',flexGrow: 1, gap: 3 }}>
 
                                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, borderBottom: '0.5px solid #f1f5f9', pb: 1 }}>
                                             <Typography sx={{ fontSize: 16, color: '#3b82f6', lineHeight: 1 }}>🪪</Typography>

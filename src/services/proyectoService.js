@@ -64,11 +64,11 @@ const proyectoService = (( )=>{
         }
     ];
     const equipo = [
-        {id: 1, nombre: "Venencia Shashiquen Brenda Mailén", dni: "12354987", rol: "Desarrolladora", institucion: "UNJU", foto: avatar4},
-        {id: 2, nombre: "Rodriguez María Lourdes", dni: "12354987", rol: "Diseñadora UI/UX", institucion: "UNJU", foto: avatar5},
-        {id: 3, nombre: "Martinez Milagro Soledad", dni: "12354987", rol: "Desarrolladora Fullstack", institucion: "UNJU", foto: avatar3},
-        {id: 4, nombre: "Cruz Jonatan Anibal", dni: "12354987", rol: "Desarrollador Fullstack", institucion: "UNJU", foto: avatar1},
-        {id: 5, nombre: "Juarez David", dni: "12354987", rol: "Analista en Sistemas", institucion: "UNJU", foto: avatar2}
+        {id: 1, nombre: "Venencia Shashiquen", dni: "12354987", rol: "Desarrolladora", institucion: "UNJU", foto: avatar4},
+        {id: 2, nombre: "Rodriguez María Lourdes", dni: "12312365", rol: "Diseñadora UI/UX", institucion: "UNJU", foto: avatar5},
+        {id: 3, nombre: "Martinez Milagro Soledad", dni: "17896542", rol: "Desarrolladora Fullstack", institucion: "UNJU", foto: avatar3},
+        {id: 4, nombre: "Cruz Jonatan Anibal", dni: "35394988", rol: "Desarrollador Fullstack", institucion: "UNJU", foto: avatar1},
+        {id: 5, nombre: "Juarez David", dni: "23549356", rol: "Analista en Sistemas", institucion: "UNJU", foto: avatar2}
         
     ];
     const obtenerEquipo = () => [...equipo];
