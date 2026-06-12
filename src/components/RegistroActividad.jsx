@@ -1,11 +1,11 @@
 import React from 'react';
-import "../css/registroActividad.css";
+import { Alert } from '@mui/material';
 
 const RegistroActividad = ({ ultimaActualizacion }) => {
   return (
-    <div className="registro-actividad">
-      <p>Última actualización de la lista: {ultimaActualizacion}</p>
-    </div>
+    <Alert severity="info">
+      Última actualización de la lista: {ultimaActualizacion}
+    </Alert>
   );
 };
 
