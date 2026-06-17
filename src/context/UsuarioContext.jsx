@@ -1,11 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 export const UsuarioContext = createContext();
 
 export const UsuarioProvider = ({ children }) => {
   const [usuario, setUsuario] = useState({
-    nombre: "Juan Pérez",
-    dni: "12345678",
+    nombre: "David Juarez",
+    dni: "23549356",
     rol: "Alumno", // Puede ser "Docente" o "Alumno"
     institucion: "Facultad de Ingeniería"
   });
@@ -19,4 +19,7 @@ export const UsuarioProvider = ({ children }) => {
       {children}
     </UsuarioContext.Provider>
   );
+};
+export const useUsuario = () => {
+    return useContext(UsuarioContext);
 };

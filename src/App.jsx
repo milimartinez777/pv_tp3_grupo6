@@ -6,10 +6,11 @@ import Dashboard from "./views/Dashboard";
 import DetalleProyecto from "./views/DetalleProyecto";
 import PerfilUsuario from "./views/PerfilUsuario";
 import { BrowserRouter, Routes , Route } from "react-router-dom";
-
+import { UsuarioProvider } from "./context/UsuarioContext";
 
 function App() {
   return (
+    <UsuarioProvider>
     <BrowserRouter>
       <Header />
       <Nav />
@@ -27,6 +28,7 @@ function App() {
 
       <Footer />
     </BrowserRouter>
+    </UsuarioProvider>
   );
 }
 
